@@ -125,7 +125,12 @@ if ($selectedPhoto) {
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- Image -->
                 <div class="relative">
-                    <img src="<?php echo htmlspecialchars($photoDetails['image']); ?>" alt="<?php echo htmlspecialchars($photoDetails['title']); ?>" class="w-full rounded-lg">
+                    <img src="<?php echo htmlspecialchars($photoDetails['image']); ?>" alt="<?php echo htmlspecialchars($photoDetails['title']); ?>" class="w-full rounded-lg cursor-pointer hover:opacity-90 transition-opacity" onclick="openFullscreen(this)">
+                    <button onclick="openFullscreen(document.querySelector('#photo-modal img'))" class="absolute bottom-4 right-4 p-2 bg-black/70 hover:bg-brand-accent/90 rounded-full text-white transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"></path>
+                        </svg>
+                    </button>
                 </div>
 
                 <!-- Details -->
@@ -175,4 +180,46 @@ if ($selectedPhoto) {
         </div>
     </div>
 </div>
-<?php endif; ?>
+
+<!-- Fullscreen Photo Viewer -->
+<div id="fullscreen-viewer" class="hidden fixed inset-0 z-[100] bg-black">
+    <button onclick="closeFullscreen()" class="absolute top-4 right-4 z-10 p-3 bg-black/70 hover:bg-black/90 rounded-full text-white transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+    </button>
+    <div class="w-full h-full flex items-center justify-center p-4">
+        <img id="fullscreen-image" src="" alt="Fullscreen" class="max-w-full max-h-full object-contain">
+    </div>
+</div>
+
+<script>
+function openFullscreen(imgElement) {
+    const viewer = document.getElementById('fullscreen-viewer');
+    const fullscreenImg = document.getElementById('fullscreen-image');
+    fullscreenImg.src = imgElement.src;
+    fullscreenImg.alt = imgElement.alt;
+    viewer.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeFullscreen() {
+    const viewer = document.getElementById('fullscreen-viewer');
+    viewer.classList.add('hidden');
+    document.body.style.overflow = '';
+}
+
+// Close fullscreen on Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeFullscreen();
+    }
+});
+
+// Close fullscreen on click outside image
+document.getElementById('fullscreen-viewer')?.addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeFullscreen();
+    }
+});
+</script>
