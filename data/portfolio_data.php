@@ -147,7 +147,7 @@ $portfolioItems = [
         'image' => 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=2070&auto=format&fit=crop',
         'description' => 'Productfoto met focus op materiaal en details.',
         'whyInteresting' => 'Reflecties tonen de kwaliteit van het oppervlak.',
-        'critique' => 'Achtergrond is clean en storend.',
+        'critique' => 'Achtergrond is clean en niet storend.',
         'specs' => ['shutter' => '1/160s', 'aperture' => 'f/16', 'iso' => '100', 'camera' => 'Sony A7IV'],
     ],
     [

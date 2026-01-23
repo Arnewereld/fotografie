@@ -105,7 +105,7 @@
                 <p>
                     Dit project heeft mij geleerd dat fotografie niet alleen gaat over het technisch perfect vastleggen van een beeld,
                     maar ook over het vertellen van een verhaal en het overbrengen van emotie. Elke foto in dit portfolio representeert
-                    een leermom ent en een stap voorwaarts in mijn ontwikkeling als fotograaf.
+                    een leermoment en een stap voorwaarts in mijn ontwikkeling als fotograaf.
                 </p>
                 <p>
                     Ik dank iedereen die mij heeft geïnspireerd, geadviseerd en de tijd heeft genomen om model te staan of feedback te geven.
