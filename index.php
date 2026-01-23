@@ -4,6 +4,8 @@
 $requestUri = $_SERVER['REQUEST_URI'] ?? '/';
 $requestUri = parse_url($requestUri, PHP_URL_PATH);
 $requestUri = trim($requestUri, '/');
+// Sanitize to prevent path traversal
+$requestUri = preg_replace('/[^a-zA-Z0-9_\-]/', '', $requestUri);
 
 // Define routes
 $routes = [
