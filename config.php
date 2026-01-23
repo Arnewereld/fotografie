@@ -22,12 +22,18 @@ function route($uri) {
     // Clean up the URI
     $uri = trim($uri, '/');
     
+    // Check for photo detail route (foto/123)
+    if (preg_match('/^foto\/(\d+)$/', $uri, $matches)) {
+        $_GET['id'] = $matches[1];
+        return 'pages/photo-detail.php';
+    }
+    
     // Define routes
     $routes = [
         '' => 'pages/home.php',
-        'over' => 'pages/over.php',
+        'over' => 'pages/home.php',
         'portfolio' => 'pages/portfolio.php',
-        'contact' => 'pages/contact.php',
+        'contact' => 'pages/home.php',
     ];
     
     // Return the page or 404

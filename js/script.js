@@ -225,8 +225,8 @@ if (contactForm) {
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
-        navbar.style.background = 'rgba(30, 27, 75, 1)';
+        navbar.style.background = '#000000';
     } else {
-        navbar.style.background = 'rgba(30, 27, 75, 0.95)';
+        navbar.style.background = '#000000';
     }
 });

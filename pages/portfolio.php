@@ -27,7 +27,7 @@ $images = getImagesByCategory($currentFilter);
 
         <div class="gallery-grid">
             <?php foreach ($images as $image): ?>
-                <div class="gallery-item" data-category="<?php echo e($image['category']); ?>">
+                <a href="<?php echo url('foto/' . $image['id']); ?>" class="gallery-item" data-category="<?php echo e($image['category']); ?>">
                     <img src="<?php echo e($image['image']); ?>" alt="<?php echo e($image['title']); ?>">
                     <div class="gallery-overlay">
                         <div class="gallery-overlay-content">
@@ -35,7 +35,7 @@ $images = getImagesByCategory($currentFilter);
                             <p><?php echo e(ucfirst($image['category'])); ?></p>
                         </div>
                     </div>
-                </div>
+                </a>
             <?php endforeach; ?>
         </div>
     </div>
