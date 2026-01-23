@@ -1,6 +1,7 @@
 <?php
-$currentRoute = $_GET['route'] ?? '';
-$currentRoute = trim($currentRoute, '/');
+$requestUri = $_SERVER['REQUEST_URI'] ?? '/';
+$requestUri = parse_url($requestUri, PHP_URL_PATH);
+$currentRoute = trim($requestUri, '/');
 
 function isActive($route, $currentRoute) {
     return $route === $currentRoute ? 'text-brand-accent' : 'text-gray-300 hover:text-white';
