@@ -223,3 +223,4 @@ document.getElementById('fullscreen-viewer')?.addEventListener('click', function
     }
 });
 </script>
+<?php endif; ?>
