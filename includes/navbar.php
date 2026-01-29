@@ -10,6 +10,7 @@
             <li><a href="<?php echo url('voorwoord'); ?>" class="nav-link <?php echo (isset($currentPage) && $currentPage === 'voorwoord') ? 'active' : ''; ?>">VOORWOORD</a></li>
             <li><a href="<?php echo url('inhoudsopgave'); ?>" class="nav-link <?php echo (isset($currentPage) && $currentPage === 'inhoudsopgave') ? 'active' : ''; ?>">INHOUD</a></li>
             <li><a href="<?php echo url('gallery'); ?>" class="nav-link <?php echo (isset($currentPage) && ($currentPage === 'gallery' || $currentPage === 'portfolio')) ? 'active' : ''; ?>">PORTFOLIO</a></li>
+            <li><a href="<?php echo url('lichtplan'); ?>" class="nav-link <?php echo (isset($currentPage) && $currentPage === 'lichtplan') ? 'active' : ''; ?>">LICHTPLAN</a></li>
             <li><a href="<?php echo url('nawoord'); ?>" class="nav-link <?php echo (isset($currentPage) && $currentPage === 'nawoord') ? 'active' : ''; ?>">NAWOORD</a></li>
         </ul>
         <div class="hamburger" onclick="toggleMobileMenu()">

@@ -21,21 +21,32 @@ $currentPage = "nawoord";
                 <div class="bg-black/30 rounded-lg p-6">
                     <h3 class="text-white font-semibold mb-2">Technische Vaardigheden</h3>
                     <p class="text-gray-300 text-sm">
-                        Ik heb een veel beter begrip gekregen van de heilige driehoek (ISO, sluitertijd, diafragma) en hoe deze instellingen elkaar beïnvloeden. Ook het werken met kunstlicht in de studio was aanvankelijk een uitdaging, maar na veel experimenteren snap ik nu hoe ik verschillende lichtsetups kan gebruiken voor verschillende effecten.
+                        Ik heb een veel beter begrip gekregen van de 
+                        heilige driehoek (ISO, sluitertijd, diafragma)
+                         en hoe deze instellingen elkaar beïnvloeden.
+                          Ook het werken met kunstlicht in de studio was 
+                          aanvankelijk een uitdaging, maar na veel 
+                          experimenteren snap ik nu hoe ik verschillende
+                           lichtsetups kan gebruiken voor verschillende effecten.
                     </p>
                 </div>
                 
                 <div class="bg-black/30 rounded-lg p-6">
                     <h3 class="text-white font-semibold mb-2">Compositie</h3>
                     <p class="text-gray-300 text-sm">
-                        Het bewust nadenken over beeldaspect en zoals compositie, perspectief en kaderverschillende composities kan de uitstraling van een foto volledig veranderen.
+                        Het bewust nadenken over beeldaspect en zoals compositie,
+                         perspectief en kaderverschillende composities kan de 
+                         uitstraling van een foto volledig veranderen.
                     </p>
                 </div>
                 
                 <div class="bg-black/30 rounded-lg p-6">
                     <h3 class="text-white font-semibold mb-2">Beeldbewerking</h3>
                     <p class="text-gray-300 text-sm">
-                        Lightroom is een krachtige tool geworden in mijn workflow. Ik heb geleerd dat subtiele aanpassingen vaak meer impact hebben dan extreme bewerkingen, en dat het belangrijk is om trouw te blijven aan de originele sfeer van de foto.
+                        Lightroom is een krachtige tool geworden in mijn workflow. 
+                        Ik heb geleerd dat subtiele aanpassingen vaak meer impact
+                         hebben dan extreme bewerkingen, en dat het belangrijk is
+                          om trouw te blijven aan de originele sfeer van de foto.
                     </p>
                 </div>
             </div>
@@ -43,17 +54,20 @@ $currentPage = "nawoord";
             <h2 class="text-2xl font-serif text-brand-accent mb-4 mt-8">Reflectie</h2>
             
             <p class="text-gray-300 text-lg leading-relaxed mb-6">
-                Als ik terugkijk op mijn eerste foto's en ze vergelijk met mijn meest recente werk, zie ik duidelijke vooruitgang. Niet alleen technisch, maar ook in mijn fotografische visie. Ik kijk nu anders naar de wereld om me heen en zie overal potentiële foto's.
+                Als ik terugkijk op mijn eerste foto's en ze vergelijk
+                 met mijn meest recente werk, zie ik duidelijke vooruitgang.
+                  Niet alleen technisch, maar ook in mijn fotografische visie.
+                   Ik kijk nu anders naar de wereld om me heen en zie overal 
+                   potentiële foto's.
             </p>
             
             <p class="text-gray-300 text-lg leading-relaxed mb-6">
-                Er zijn natuurlijk nog veel dingen die ik wil leren en verbeteren. Sommige foto's in dit portfolio zijn niet perfect, maar ze vertegenwoordigen wel mijn leerproces en dat maakt ze waardevol. Elke 'mislukte' foto heeft me iets geleerd wat ik kon toepassen in de volgende opname.
-            </p>
-            
-            <h2 class="text-2xl font-serif text-brand-accent mb-4 mt-8">Dankwoord</h2>
-            
-            <p class="text-gray-300 text-lg leading-relaxed mb-6">
-                Ik wil graag mijn docenten bedanken voor hun begeleiding en feedback tijdens dit project. Ook dank aan mijn modellen en iedereen die geduldig heeft geposeerd terwijl ik mijn lichtsetup voor de tiende keer aanpaste.
+                Er zijn natuurlijk nog veel dingen die ik wil leren 
+                en verbeteren. Sommige foto's in dit portfolio zijn 
+                niet perfect, maar ze vertegenwoordigen wel mijn
+                 leerproces en dat maakt ze waardevol. Elke 'mislukte'
+                  foto heeft me iets geleerd wat ik kon toepassen in 
+                  de volgende opname.
             </p>
             
             <div class="mt-8 pt-6 border-t border-white/10">

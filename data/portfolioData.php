@@ -33,6 +33,12 @@ $portfolioCategories = [
         'title' => 'Mijn Mooiste Foto\'s',
         'description' => 'Een selectie van mijn beste werk',
         'image' => 'images/mijn mooiste foto/Bewerkt/image.png'
+    ],
+    [
+        'id' => 'prive',
+        'title' => 'Privé Foto\'s',
+        'description' => 'Persoonlijke foto\'s van mijn vrije tijd',
+        'image' => 'images/prive fotos/IMG_0050-001.JPG'
     ]
 ];
 
@@ -310,6 +316,124 @@ function getImageById($id) {
     return null;
 }
 
+// Functie om privé foto's dynamisch in te laden
+function getPriveFotos() {
+    $priveFolder = __DIR__ . '/../images/prive fotos';
+    $photos = [];
+    
+    if (is_dir($priveFolder)) {
+        $files = glob($priveFolder . '/*.{jpg,jpeg,png,JPG,JPEG,PNG}', GLOB_BRACE);
+        
+        // Sorteer op bestandsnaam (001, 002, etc.)
+        sort($files);
+        
+        foreach ($files as $file) {
+            $filename = basename($file);
+            // Haal nummer uit bestandsnaam (bijv. 001 uit IMG_0050-001.JPG)
+            preg_match('/-(\d+)\./', $filename, $matches);
+            $number = isset($matches[1]) ? $matches[1] : '000';
+            
+            // Lees EXIF data uit de foto
+            $exif = function_exists('exif_read_data') ? @exif_read_data($file) : false;
+            
+            // Haal camera info op
+            $camera = 'Canon PowerShot A640';
+            $lens = 'Ingebouwde lens';
+            $shutter = 'Auto';
+            $aperture = 'Auto';
+            $iso = 'Auto';
+            $focalLength = 'Auto';
+            $dateTaken = date('Y-m-d', filemtime($file));
+            
+            if ($exif !== false) {
+                // Camera model
+                if (isset($exif['Model'])) {
+                    $camera = $exif['Model'];
+                    if (isset($exif['Make']) && strpos($camera, $exif['Make']) === false) {
+                        $camera = $exif['Make'] . ' ' . $camera;
+                    }
+                }
+                
+                // Lens
+                if (isset($exif['UndefinedTag:0xA434'])) {
+                    $lens = $exif['UndefinedTag:0xA434'];
+                } elseif (isset($exif['LensModel'])) {
+                    $lens = $exif['LensModel'];
+                }
+                
+                // Sluitertijd
+                if (isset($exif['ExposureTime'])) {
+                    $shutter = $exif['ExposureTime'] . 's';
+                }
+                
+                // Diafragma
+                if (isset($exif['FNumber'])) {
+                    $aperture = 'f/' . $exif['FNumber'];
+                } elseif (isset($exif['COMPUTED']['ApertureFNumber'])) {
+                    $aperture = $exif['COMPUTED']['ApertureFNumber'];
+                }
+                
+                // ISO
+                if (isset($exif['ISOSpeedRatings'])) {
+                    $iso = 'ISO ' . $exif['ISOSpeedRatings'];
+                }
+                
+                // Brandpuntafstand
+                if (isset($exif['FocalLength'])) {
+                    $focalLength = $exif['FocalLength'];
+                    if (strpos($focalLength, '/') !== false) {
+                        eval('$focalLength = ' . $focalLength . ';');
+                        $focalLength = round($focalLength) . 'mm';
+                    }
+                }
+                
+                // Datum
+                if (isset($exif['DateTimeOriginal'])) {
+                    $dateTaken = date('Y-m-d', strtotime($exif['DateTimeOriginal']));
+                }
+            }
+            
+            $photos[] = [
+                'id' => 'prive-' . $number,
+                'categoryId' => 'prive',
+                'title' => 'Privé Foto #' . $number,
+                'image' => 'images/prive fotos/' . $filename,
+                'imageBefore' => 'images/prive fotos/' . $filename,
+                'whyInteresting' => 'Een persoonlijk moment vastgelegd tijdens mijn vrije tijd.',
+                'critique' => 'Spontane opname uit mijn dagelijks leven.',
+                'analysis' => [
+                    'composition' => 'Spontane compositie',
+                    'frame' => 'Natuurlijk kader',
+                    'format' => 'Standaard formaat',
+                    'perspective' => 'Natuurlijk perspectief',
+                    'lightDirection' => 'Beschikbaar licht',
+                    'intensity' => 'Variabel',
+                    'lightSource' => 'Natuurlijk/omgevingslicht',
+                    'depthOfField' => 'Standaard'
+                ],
+                'edits' => [],
+                'specs' => [
+                    'camera' => $camera,
+                    'lens' => $lens,
+                    'shutter' => $shutter,
+                    'aperture' => $aperture,
+                    'iso' => $iso,
+                    'focalLength' => $focalLength,
+                    'whiteBalance' => 'Auto'
+                ],
+                'location' => 'Privé',
+                'date' => $dateTaken,
+                'description' => 'Persoonlijke foto uit mijn vrije tijd'
+            ];
+        }
+    }
+    
+    return $photos;
+}
+
+// Voeg privé foto's toe aan portfolioItems
+$portfolioItems = array_merge($portfolioItems, getPriveFotos());
+
 // Security helper
 function e($string) {
     return htmlspecialchars($string, ENT_QUOTES, 'UTF-8');
@@ -317,6 +441,21 @@ function e($string) {
 
 // URL helper
 function url($path = '') {
-    $base = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/');
-    return $base . '/' . ltrim($path, '/');
+    // Check if we're in a subfolder
+    $scriptName = $_SERVER['SCRIPT_NAME'];
+    $requestUri = $_SERVER['REQUEST_URI'];
+    
+    // Get the base path (everything before index.php)
+    $basePath = str_replace('\\', '/', dirname($scriptName));
+    
+    // Clean up the base path
+    $basePath = rtrim($basePath, '/');
+    
+    // If path is empty, return base
+    if (empty($path)) {
+        return $basePath . '/';
+    }
+    
+    // Build full URL
+    return $basePath . '/' . ltrim($path, '/');
 }
