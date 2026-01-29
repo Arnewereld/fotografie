@@ -31,8 +31,14 @@ function route($uri) {
     // Define routes
     $routes = [
         '' => 'pages/home.php',
-        'over' => 'pages/home.php',
+        'voorwoord' => 'pages/voorwoord.php',
+        'inhoudsopgave' => 'pages/inhoudsopgave.php',
+        'werkwijze' => 'pages/werkwijze.php',
+        'gallery' => 'pages/gallery.php',
         'portfolio' => 'pages/portfolio.php',
+        'lichtplan' => 'pages/lichtplan.php',
+        'nawoord' => 'pages/nawoord.php',
+        'over' => 'pages/home.php',
         'contact' => 'pages/home.php',
     ];
     

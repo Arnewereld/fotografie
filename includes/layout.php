@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo isset($pageTitle) ? e($pageTitle) . ' - ' : ''; ?>Arne Meevis Fotografie</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-accent': '#e74c3c',
+                        'neutral': {
+                            900: '#1a1a1a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="<?php echo url('css/style.css?v=' . time()); ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
